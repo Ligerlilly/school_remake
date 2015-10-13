@@ -1,0 +1,16 @@
+<div class="row">
+  <ul>
+    <% @chapter.sections.each do |section| %>
+      <div class="col-md-6 panel panel-default">
+        <li class="panel-heading"><%= link_to section.name, section_path(section) %></li>
+          <ul>
+            <% section.lessons.each do |lesson| %>
+              <li class="panel-body"><%= link_to lesson.title, lesson_path(lesson) %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to 'Add Section', new_section_path, class: 'btn btn-default' %>

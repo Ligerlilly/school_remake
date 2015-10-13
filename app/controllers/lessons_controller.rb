@@ -9,10 +9,11 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    @section = Section.find(params['lesson']['section_id'])
+    @lesson = @section.lessons.new(lesson_params)
     @lesson.number = Lesson.all.length
     if @lesson.save
-      redirect_to lessons_path
+      redirect_to section_path(@lesson.section)
     else
       render :new
     end
@@ -34,7 +35,7 @@ class LessonsController < ApplicationController
 
   def destroy
     @lesson.destroy
-    redirect_to lessons_path
+    redirect_to chapter_path(1)
   end
 
   private

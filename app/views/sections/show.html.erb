@@ -1,9 +1,15 @@
-<%= @section.name %>
 
-<ul>
-  <% @section.lessons.each do |lesson| %>
-    <li><%= link_to lesson.title, lesson_path(lesson) %></li>
-  <% end %>
-</ul>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= @section.name %>
+  </div>
+  <ul>
+    <% @section.lessons.each do |lesson| %>
+      <li class="panel-body"><%= link_to lesson.title, lesson_path(lesson) %></li>
+    <% end %>
+  </ul>
+</div>
 
-<%= link_to 'Home', chapters_path %>
+<%= link_to 'Add Lesson', new_lesson_path %> |
+<%= link_to 'Delete Section', section_path(@section), :data => {confirm: 'Are you sure?', method: 'delete'} %> | 
+<%= link_to 'Home', chapter_path(@section.chapter) %>

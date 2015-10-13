@@ -1,0 +1,14 @@
+ul {
+  list-style: none;
+  .panel{
+    padding: 0;
+    ul {
+      padding-left: 10px;
+    }
+    .panel-body{
+      li{
+        padding-left: 0;
+      }
+    }
+  }
+}
