@@ -1,7 +1,11 @@
 require 'rails_helper'
 describe 'editing a lesson' do
   before do
-    @lesson = FactoryGirl.create(:lesson, id: 1)
+    chapter = FactoryGirl.create(:chapter, id: 1)
+    section = FactoryGirl.create(:section, chapter_id: chapter.id)
+    lesson = FactoryGirl.create(:lesson, id: 1)
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
   end
   it 'edits a lesson' do
     visit '/lessons/1'

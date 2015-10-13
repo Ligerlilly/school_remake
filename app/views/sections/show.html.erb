@@ -9,7 +9,8 @@
     <% end %>
   </ul>
 </div>
-
-<%= link_to 'Add Lesson', new_lesson_path %> |
-<%= link_to 'Delete Section', section_path(@section), :data => {confirm: 'Are you sure?', method: 'delete'} %> | 
+<% if current_user %>
+  <%= link_to 'Add Lesson', new_lesson_path  %> |
+  <%= link_to 'Delete Section', section_path(@section), :data => {confirm: 'Are you sure?', method: 'delete'} if current_user %> |
+<% end %>
 <%= link_to 'Home', chapter_path(@section.chapter) %>
