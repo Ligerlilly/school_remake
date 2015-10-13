@@ -1,0 +1,9 @@
+<%= @section.name %>
+
+<ul>
+  <% @section.lessons.each do |lesson| %>
+    <li><%= link_to lesson.title, lesson_path(lesson) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Home', chapters_path %>
